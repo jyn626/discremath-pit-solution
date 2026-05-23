@@ -23,28 +23,12 @@ class Part1 {
 
 
   totalUnpreatingIds(): number {
-    /**
-      o Exclude:
-         IDs with identical letters (e.g. AA, BB)
-         IDs with identical digits (e.g. 111, 222)
-      o Compute the total valid USER IDs
-     */
+    const totalLettersCombination = this.letters.length * (this.letters.length - 1)
+    const totalDigitCombinations = this.digits.length * (this.digits.length - 1) * (this.digits.length - 2)
 
-    // ang atoang letter combination is 2 letters
-    const totalLettersCombination = this.letters.length * this.letters.length
-    const invalidLetterCombinations = this.letters.length
 
-    // mag subtraction rule dayon ta
-    // wanted = total possible outcomes - unwanted 
-    const wantedLetterCombinations = totalLettersCombination - invalidLetterCombinations
-
-    // !!! I still don't understand fully how this works.
-    const totalDigitCombinations = this.digits.length * this.digits.length * this.digits.length  // 10 * 10 * 10 
-    // !!! Why is this a 10 ? Why does this work ? is this even correct ? lmao.
-    const invalidDigitCombinations = 10
-
-    const wantedDigitCombinations = totalDigitCombinations - invalidDigitCombinations
-    const result = wantedDigitCombinations * wantedLetterCombinations
+    // const wantedDigitCombinations = totalDigitCombinations - invalidDigitCombinations
+    const result = totalLettersCombination * totalDigitCombinations
 
     return result
   }

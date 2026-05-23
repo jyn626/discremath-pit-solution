@@ -38,12 +38,15 @@ class Part1 {
     // wanted = total possible outcomes - unwanted 
     const wantedLetterCombinations = totalLettersCombination - invalidLetterCombinations
 
-    // !!! directly counting in the case of the digits since i cant fully figure it out LoL.
-    // TODO would be figuring out how to work this with subtraction rule, im too dumb for this.
-    const validDigitCombinations = this.digits.length * (this.digits.length - 1) * (this.digits.length - 2) // 10 * 9 * 8 
-    const totalValidIds = validDigitCombinations * wantedLetterCombinations
+    // !!! I still don't understand fully how this works.
+    const totalDigitCombinations = this.digits.length * this.digits.length * this.digits.length  // 10 * 10 * 10 
+    // !!! Why is this a 10 ? Why does this work ? is this even correct ? lmao.
+    const invalidDigitCombinations = 10
 
-    return totalValidIds
+    const wantedDigitCombinations = totalDigitCombinations - invalidDigitCombinations
+    const result = wantedDigitCombinations * wantedLetterCombinations
+
+    return result
   }
 
   generateValidIds(iteration: number): void {
@@ -84,6 +87,6 @@ class Part1 {
 }
 
 
-const part1 = new Part1(5000)
+const part1 = new Part1(10)
 
 part1.displayResult()

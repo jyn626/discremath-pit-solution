@@ -1,4 +1,4 @@
-class Part1 {
+export class Part2 {
   letters: string[];
   digits: number[];
   iterations: number;
@@ -22,7 +22,7 @@ class Part1 {
   }
 
 
-  totalUnpreatingIds(): number {
+  subtractInvalidIdsAndKeepNoRepeats(): number {
     const totalLettersCombination = this.letters.length * (this.letters.length - 1)
     const totalDigitCombinations = this.digits.length * (this.digits.length - 1) * (this.digits.length - 2)
 
@@ -61,7 +61,7 @@ class Part1 {
   displayResult() {
     console.log({
       "computeTotalPossibleValidIds": this.computeTotalPossibleValidIds(),
-      "totalUnpreatingIds": this.totalUnpreatingIds()
+      "totalUnpreatingIds": this.subtractInvalidIdsAndKeepNoRepeats()
     })
 
 
@@ -71,5 +71,5 @@ class Part1 {
 }
 
 
-const part1 = new Part1(10)
-part1.displayResult()
+const part2 = new Part2(10)
+part2.displayResult()

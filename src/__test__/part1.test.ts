@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import { Part1 } from '../part1'
 
-describe('Part 1: Compute numbers of possible valid ids', () => {
+describe('Part 1', () => {
   it('Part 1, no.1', () => {
     const part1 = new Part1(10)
     const validIds = part1.computeTotalPossibleValidIds()
@@ -30,3 +30,5 @@ describe('Part 1: Compute numbers of possible valid ids', () => {
 
   })
 })
+
+

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Part1 = void 0;
 class Part1 {
     letters;
     digits;
@@ -63,6 +64,7 @@ class Part1 {
         this.generateValidIds(this.iterations);
     }
 }
+exports.Part1 = Part1;
 const part1 = new Part1(10);
 part1.displayResult();
 //# sourceMappingURL=part1.js.map

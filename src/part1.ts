@@ -1,4 +1,4 @@
-class Part1 {
+export class Part1 {
   letters: string[];
   digits: number[];
   iterations: number;
@@ -22,7 +22,7 @@ class Part1 {
   }
 
 
-  totalUnpreatingIds(): number {
+  subtractInvalidIds(): number {
     /**
       o Exclude:
          IDs with identical letters (e.g. AA, BB)
@@ -49,10 +49,10 @@ class Part1 {
     return result
   }
 
-  generateValidIds(iteration: number): void {
+  generateValidIds(): string[] {
 
-
-    while (iteration > 0) {
+    const results = []
+    while (this.iterations > 0) {
       const randomFirstLetter = this.letters[Math.floor(Math.random() * this.letters.length)]!
       const randomSecondLetter = this.letters[Math.floor(Math.random() * this.letters.length)]!
 
@@ -66,22 +66,23 @@ class Part1 {
         randomFirstDigit != randomThirdDigit &&
         randomSecondDigit != randomThirdDigit
       ) {
+        results.push(`${randomFirstLetter}${randomSecondLetter}-${randomFirstDigit}${randomSecondDigit}${randomThirdDigit}`)
         console.log(`${randomFirstLetter}${randomSecondLetter}-${randomFirstDigit}${randomSecondDigit}${randomThirdDigit}`)
-        iteration -= 1
+        this.iterations -= 1
       }
     }
-
+    return results
   }
 
 
   displayResult() {
     console.log({
       "computeTotalPossibleValidIds": this.computeTotalPossibleValidIds(),
-      "totalUnpreatingIds": this.totalUnpreatingIds()
+      "totalUnpreatingIds": this.subtractInvalidIds()
     })
 
 
-    this.generateValidIds(this.iterations)
+    this.generateValidIds()
   }
 
 }
